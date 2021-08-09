@@ -1,47 +1,64 @@
-﻿//using bytebank
-
-
-namespace bytebank
+﻿public class ContaCorrente
 {
-    public class ContaCorrente
+    public Cliente Titular { get; set; }
+    public int Numero { get; set; }
+    private int Agencia { get; set; }
+    private double _saldo = 100;
+
+    private static int TotalDeContasCriadas { get; private set; }
+    public static int ObterTotalDeContasCriadas()
     {
-        //public bytebank.Cliente Titular;
-        public Cliente Titular;
-        public int agencia;
-        public int numero;
-        public double saldo;
-
-        public bool Sacar(double valor)
+        return TotalDeContasCriadas;
+    }
+    public double Saldo
+    {
+        get
         {
-            if (this.saldo < valor)
+            return _saldo;
+        }
+        set
+        {
+            if (value < 0)
             {
-                return false;
+                return;
             }
-            else
-            {
-                this.saldo -= valor;
-                return true;
-            }
+
+            _saldo = value;
+        }
+    }
+
+    public ContaCorrente(int agencia, int numero)
+    {
+        Agencia = agencia;
+        Numero = numero;
+        TotalDeContasCriadas++;
+    }
+    public bool Sacar(double valor)
+    {
+        if (_saldo < valor)
+        {
+            return false;
         }
 
-        public void Depositar(double valor)
+        _saldo -= valor;
+        return true;
+    }
+
+    public void Depositar(double valor)
+    {
+        _saldo += valor;
+    }
+
+
+    public bool Transferir(double valor, ContaCorrente contaDestino)
+    {
+        if (_saldo < valor)
         {
-            this.saldo += valor;
+            return false;
         }
 
-        public bool Transferir(double valor, ContaCorrente contaDestino)
-        {
-            if (this.saldo < valor)
-            {
-                return false;
-            }
-            else
-            {
-                this.saldo -= valor;
-                contaDestino.Depositar(valor);
-                return true;
-            }
-
-        }
+        _saldo -= valor;
+        contaDestino.Depositar(valor);
+        return true;
     }
 }

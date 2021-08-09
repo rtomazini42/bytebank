@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace bytebank
+﻿public class Cliente
 {
-    public class Cliente
+    public string Nome { get; set; }
+    private string _cpf;
+    public string CPF
     {
-        public string nome;
-        public string cpf;
-        public string profissão;
+        get
+        {
+            return _cpf;
+        }
+        set
+        {
+            // Escrevo minha lógica de validação de CPF
+            _cpf = value;
+        }
     }
+    public string Profissao { get; set; }
 }

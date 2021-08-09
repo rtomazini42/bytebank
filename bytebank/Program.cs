@@ -7,19 +7,11 @@ namespace bytebank
         static void Main(string[] args)
         {
             Console.WriteLine();
-            Cliente gabriela = new Cliente();
-
-            gabriela.nome = "Gabriela Costa";
-            gabriela.profissão = "Garçonete";
-            gabriela.cpf = "43256287820";
-
-            ContaCorrente conta = new ContaCorrente();
-            conta.Titular = gabriela;
-            conta.saldo = 400;
-            conta.agencia = 563;
-            conta.numero = 56632;
-            Console.WriteLine(conta.Titular.nome);
-
+            ContaCorrente conta = new ContaCorrente(84712540,
+                                             1010);
+            ContaCorrente conta2 = new ContaCorrente(81712540,
+                                             1011);
+            Console.WriteLine(ContaCorrente.ObterTotalDeContasCriadas());
             Console.ReadLine();
         }
     }
