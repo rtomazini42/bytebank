@@ -5,8 +5,8 @@
     private int Agencia { get; set; }
     private double _saldo = 100;
 
-    private static int TotalDeContasCriadas { get; private set; }
-    public static int ObterTotalDeContasCriadas()
+    internal static int TotalDeContasCriadas { get; private set; }
+    private static int ObterTotalDeContasCriadas()
     {
         return TotalDeContasCriadas;
     }
