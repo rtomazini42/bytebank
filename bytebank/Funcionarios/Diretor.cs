@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 //linha de teste
 namespace bytebank.Funcionarios
 {
-    public class Diretor
+    public class Diretor : Funcionario
     {
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public double Salario { get; set; }
-
-        public double GetBonificacao()
+        
+        public override double GetBonificacao()
         {
             return Salario;
         }
