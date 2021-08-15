@@ -1,31 +1,27 @@
-﻿using System;
+﻿using bytebank.Funcionarios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//linha de teste
 namespace bytebank.Funcionarios
 {
-    public class Diretor : Funcionario
+    public class GerenteDeConta : Funcionario
     {
-
-        public Diretor(string cpf) : base(cpf)
+        public GerenteDeConta(string cpf) : base(4000, cpf)
         {
 
         }
-
-        public string V { get; }
 
         public override void AumentarSalario()
         {
-            Salario *= 1.15;
+            Salario *= 1.05;
         }
+
         public override double GetBonificacao()
         {
-            //return Salario + base.GetBonificacao();
-            return Salario * 0.5;
-        } 
+            return Salario * 0.25;
+        }
     }
 }
