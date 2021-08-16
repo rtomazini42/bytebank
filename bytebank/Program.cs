@@ -1,5 +1,6 @@
 ﻿using bytebank;
 using bytebank.Funcionarios;
+using bytebank.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +39,22 @@ namespace bytebank
             gerenciadorBonificacao.Registrar(roberta);
             gerenciadorBonificacao.Registrar(igor);
             gerenciadorBonificacao.Registrar(camila);
-
+            UsarSistema();
             Console.WriteLine("Total de bonificações do mês " +
             gerenciadorBonificacao.GetTotalBonificacao());
+        }
+
+        public static void UsarSistema()
+        {
+            SistemaInterno sistemaInterno = new SistemaInterno();
+
+            Diretor roberta = new Diretor("159.753.398-04");
+            roberta.Nome = "Roberta";
+            roberta.Senha = "123";
+            //roberta.Senha("abc");
+
+            sistemaInterno.Logar(roberta, "123");
+            sistemaInterno.Logar(roberta, "abc");
         }
     }
 }

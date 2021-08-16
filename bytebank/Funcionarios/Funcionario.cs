@@ -12,6 +12,7 @@ namespace bytebank.Funcionarios
         public string Nome { get; set; }
         public string CPF { get;private set; }
         public double Salario { get; protected set; }
+        //public string Senha { get;  set; }
 
         public Funcionario(double salario, string cpf)
         {
@@ -26,14 +27,19 @@ namespace bytebank.Funcionarios
             CPF = cpf;
         }
 
-        public virtual void AumentarSalario()
-        {
-            Salario = Salario + (Salario * 0.1);
-        }
 
-        public virtual double GetBonificacao()
-        {
-            return Salario * 0.10;
-        }
+
+        public abstract void AumentarSalario();
+        //{
+        //Salario = Salario + (Salario * 0.1);
+        //Console.WriteLine("Não esqueça de sobrescrever!");
+        //}
+
+        public abstract double GetBonificacao();
+        //{
+            //return Salario * 0.10;
+            //Console.WriteLine("Não esqueça de sobrescrever!");
+
+        //}
     }
 }
