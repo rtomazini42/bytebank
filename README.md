@@ -3,4 +3,4 @@
 Mergulhando no paradigma da orientação a objetos e domine recursos essenciais da principal linguagem da Microsoft para o back-end.
 
 
-![](readme/imagem.png)
+![](bytebank/bytebank/readme/imagem.png )
